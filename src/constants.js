@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://backend-infoshop.onrender.com';
+export const BASE_URL = 'https://backend-infoshop-1.onrender.com';
 export const PRODUCTS_URL = '/api/v1/products';
 export const UPLOAD_URL = '/api/v1/upload';
 export const USERS_URL = '/api/v1/users';
