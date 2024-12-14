@@ -3,6 +3,7 @@ import { Row, Col, Button, Table } from 'react-bootstrap';
 import { FaCheck, FaXmark } from 'react-icons/fa6';
 import { useGetMyOrdersQuery } from '../slices/ordersApiSlice';
 import { LinkContainer } from 'react-router-bootstrap';
+import { FaIndianRupeeSign } from 'react-icons/fa6';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
 import Meta from '../components/Meta';

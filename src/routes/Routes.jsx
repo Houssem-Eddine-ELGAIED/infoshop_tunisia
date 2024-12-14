@@ -3,13 +3,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from '../App';
 import ProductPage from '../pages/ProductPage';
 import HomePage from '../pages/HomePage';
-
 import CartPage from '../pages/CartPage';
 import LoginPage from '../pages/LoginPage';
 import RegisterPage from '../pages/RegisterPage';
 import ShippingPage from '../pages/ShippingPage';
-import About from '../pages/About ';  
-import Contact from '../pages/Contact';
 import PrivateRoute from '../components/PrivateRoute';
 import PaymentPage from '../pages/PaymentPage';
 import PlaceOrderPage from '../pages/PlaceOrderPage';
@@ -19,8 +16,8 @@ import AdminRoute from '../components/AdminRoute';
 import OrderListPage from '../pages/admin/OrderListPage';
 import ProductListPage from '../pages/admin/ProductListPage';
 import UserListPage from '../pages/admin/UserListPage';
-//import CreateProductPage from '../pages/admin/CreateProductPage';
-//import UpdateProductPage from '../pages/admin/UpdateProductPage';
+// import CreateProductPage from '../pages/admin/CreateProductPage';
+// import UpdateProductPage from '../pages/admin/UpdateProductPage';
 import ProductFormPage from '../pages/admin/ProductFormPage';
 import UpdateUserFormPage from '../pages/admin/UpdateUserFormPage';
 import NotFoundPage from '../pages/NotFoundPage';
@@ -32,7 +29,6 @@ import AdminListPage from '../pages/admin/AdminListPage';
 import ResetPasswordRequestPage from '../pages/ResetPasswordRequestPage';
 import ResetPasswordPage from '../pages/ResetPasswordPage';
 
-
 const router = createBrowserRouter([
   {
     path: '/',
@@ -43,20 +39,6 @@ const router = createBrowserRouter([
         path: '/',
         element: <HomePage />
       },
-
-     
-
-      {
-        path: '/about',  // Route pour la page About
-        element: <About />  // Référence à la page About
-      },
-
-      {
-        path: '/contact',  // Route pour la page Contact
-        element: <Contact />  // Référence à la page Contact
-      },
-
-     
       {
         path: '/product/:id',
         element: <ProductPage />
@@ -77,7 +59,6 @@ const router = createBrowserRouter([
         path: '/login',
         element: <LoginPage />
       },
-      
       {
         path: '/register',
         element: <RegisterPage />
@@ -90,10 +71,10 @@ const router = createBrowserRouter([
             path: '/shipping',
             element: <ShippingPage />
           },
-         {
+          {
             path: '/payment',
-             element: <PaymentPage />
-           },
+            element: <PaymentPage />
+          },
           {
             path: '/place-order',
             element: <PlaceOrderPage />

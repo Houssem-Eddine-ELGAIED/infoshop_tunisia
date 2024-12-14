@@ -49,13 +49,6 @@ export const ordersApiSlice = apiSlice.injectEndpoints({
         url: ORDERS_URL
       }),
       providesTags: ['Order']
-    }),
-    deleteOrder: builder.mutation({
-      query: orderId => ({
-        url: `${ORDERS_URL}/${orderId}`,
-        method: 'DELETE'
-      }),
-      invalidatesTags: ['Order'],  // Assurez-vous d'invalider le cache des commandes ici
     })
   })
 });
@@ -67,6 +60,5 @@ export const {
   useUpdateDeliverMutation,
   useGetRazorpayApiKeyQuery,
   useGetMyOrdersQuery,
-  useGetOrdersQuery,
-  useDeleteOrderMutation // Vous avez déjà ajouté ce hook pour la suppression
+  useGetOrdersQuery
 } = ordersApiSlice;
