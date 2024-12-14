@@ -1,10 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  userInfo: localStorage.getItem('userInfo')
-    ? JSON.parse(localStorage.getItem('userInfo'))
-    : null
+  userInfo: null
 };
+
+try {
+  // Vérification du stockage local (localStorage)
+  const storedUserInfo = localStorage.getItem('userInfo');
+  if (storedUserInfo) {
+    initialState.userInfo = JSON.parse(storedUserInfo);
+  }
+} catch (error) {
+  console.error('Error accessing localStorage:', error);
+}
 
 const authSlice = createSlice({
   name: 'auth',
@@ -12,15 +20,31 @@ const authSlice = createSlice({
   reducers: {
     setCredentials: (state, action) => {
       state.userInfo = action.payload;
-      localStorage.setItem('userInfo', JSON.stringify(action.payload));
+      try {
+        localStorage.setItem('userInfo', JSON.stringify(action.payload));
+      } catch (error) {
+        console.error('Error saving to localStorage:', error);
+      }
     },
-    logout: (state, action) => {
+    logout: (state) => {
       state.userInfo = null;
-      localStorage.removeItem('userInfo');
+      try {
+        localStorage.removeItem('userInfo');
+      } catch (error) {
+        console.error('Error removing from localStorage:', error);
+      }
+    },
+    updateUserInfo: (state, action) => {
+      state.userInfo = { ...state.userInfo, ...action.payload };
+      try {
+        localStorage.setItem('userInfo', JSON.stringify(state.userInfo));
+      } catch (error) {
+        console.error('Error saving updated user info to localStorage:', error);
+      }
     }
   }
 });
 
-export const { setCredentials, logout } = authSlice.actions;
+export const { setCredentials, logout, updateUserInfo } = authSlice.actions;
 
 export default authSlice.reducer;
